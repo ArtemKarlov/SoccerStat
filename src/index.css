@@ -1,11 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import-normalize;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+:root {
+  /* Typography */
+  --family: 'Nunito Sans', sans-serif;
+  --fs-sm: 14px;
+  --fs-md: 18px;
+  --fw-light: 300;
+  --fw-normal: 600;
+  --fw-bold: 800;
+
+  /* Other */
+  --radii: 0.5rem;
+
+  --colors-text: hsl(200, 15%, 8%);
+  --colors-bg: hsl(0, 0%, 98%);
+  --colors-ui-base: hsl(0, 0%, 100%);
+
+  --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  /* my */
+  --color-text: rgb(24, 24, 24);
+  --color-bg: rgb(204, 204, 204);
+
+  --color-text-primary: rgb(21, 0, 80);
+  --color-bg-primary: rgb(197, 203, 255);
+
+  --color-text-secondary: rgb(73, 13, 13);
+  --color-bg-secondary: rgb(240, 185, 185);
+
+  --shadow-primary: 5px 5px 10px var(--color-text-primary)
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: var(--family);
+  color: var(--colors-text);
+  font-weight: var(--fw-light);
+  background-color: var(--colors-bg);
+}
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
