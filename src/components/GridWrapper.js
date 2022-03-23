@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const GridWrapper = styled.div`
   width: 100%;
+  padding: 30px;
   display: grid;
   grid-template-columns: 100%;
   align-content: start;

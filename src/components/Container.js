@@ -10,7 +10,7 @@ const Container = styled.div`
     max-width: 600px;
   }
   @media screen and (min-width: 1024px) {
-    max-width: 1400px;
+    max-width: 1200px;
   }
 `;
 

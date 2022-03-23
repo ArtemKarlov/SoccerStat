@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Card = styled.article`
+  position: relative;
   padding: 30px;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +21,15 @@ const Card = styled.article`
     box-shadow: var(--shadow-primary);
     transform: scale(1.02);
   }
+
+  ${(props) =>
+    props.bg &&
+    css`
+      background-image: url('${props.bg}');
+      background-position: left 2% bottom 3%;
+      background-repeat: no-repeat;
+      background-size: 30%;
+    `}
 `;
 
 export default Card;
