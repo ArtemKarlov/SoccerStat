@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSearchParams } from 'react-router-dom';
 
-import List from '../components/List';
-import ListItem from '../components/ListItem';
-import PaginationLink from '../components/PaginationLink';
-import FlexWrapper from '../components/FlexWrapper';
+import List from '../../components/List';
+import ListItem from '../../components/ListItem';
+import PaginationLink from '../../components/PaginationLink';
+import FlexWrapper from '../../components/FlexWrapper';
 
 const getArrayN = (n) => {
   const arr = [];
@@ -15,15 +16,22 @@ const getArrayN = (n) => {
   return arr;
 };
 
-function Pagination({ length, pageNumber, paginate }) {
+function Pagination({ length }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const paginationArray = getArrayN(length);
+  const pageNumber = parseInt(searchParams.get('page') || '0', 10);
+
+  const handlePaginate = (item) => {
+    setSearchParams({ page: item });
+  };
 
   return (
     <FlexWrapper justify="center">
       <List>
         {paginationArray.map((item) => (
           <ListItem key={item}>
-            <PaginationLink active={item === pageNumber} href="#" onClick={() => paginate(item)}>
+            <PaginationLink active={item === pageNumber} onClick={() => handlePaginate(item)}>
               {item}
             </PaginationLink>
           </ListItem>
@@ -35,8 +43,6 @@ function Pagination({ length, pageNumber, paginate }) {
 
 Pagination.propTypes = {
   length: PropTypes.number.isRequired,
-  pageNumber: PropTypes.number.isRequired,
-  paginate: PropTypes.func.isRequired,
 };
 
 export default Pagination;

@@ -1,7 +1,7 @@
 import { API_BASE_URL, API_TOKEN } from '../config';
 
 const fetchData = (resource) => async () => {
-  const params = { plan: 'TIER_FOUR' };
+  const params = { plan: 'TIER_ONE' };
 
   const url = new URL(resource, API_BASE_URL);
   url.search = new URLSearchParams(params).toString();
@@ -28,10 +28,11 @@ const fetchData = (resource) => async () => {
     console.error(error);
   }
 
+  console.log(data);
   return data;
 };
 
 const fetchCompetitions = fetchData('competitions');
 const fetchTeams = fetchData('teams');
 
-export { fetchCompetitions, fetchTeams };
+export { fetchData, fetchCompetitions, fetchTeams };

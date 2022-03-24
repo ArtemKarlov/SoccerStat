@@ -6,7 +6,7 @@ const Input = styled.input`
   border: 2px solid
     ${(props) => (props.secondary ? 'var(--color-text-secondary)' : 'var(--color-text-primary)')};
   border-radius: 3px;
-  background-color: var(--color-bg);
+  background-color: none;
   outline: none;
 
   color: var(--color-text-primary);

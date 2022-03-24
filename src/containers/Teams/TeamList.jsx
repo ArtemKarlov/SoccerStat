@@ -2,23 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import GridWrapper from '../../components/GridWrapper';
-import League from './League';
+import Team from './Team';
 
-function LeagueList(props) {
+function TeamList(props) {
   const { items } = props;
 
   return (
-    <GridWrapper cols="3">
+    <GridWrapper cols="4">
       {items.map((item) => (
-        <League key={item.id} id={item.id} name={item.name} country={item.area.name} />
+        <Team key={item.id} id={item.id} name={item.name} image={item.crestUrl} />
       ))}
     </GridWrapper>
   );
 }
 
-LeagueList.propTypes = {
+TeamList.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   items: PropTypes.array.isRequired,
 };
 
-export default LeagueList;
+export default TeamList;

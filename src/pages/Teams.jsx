@@ -1,24 +1,22 @@
-/* eslint-disable no-unused-vars */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import LeagueList from '../containers/Leagues/LeagueList';
+import TeamList from '../containers/Teams';
 import { Pagination, Search } from '../containers/common';
 
-import { fetchCompetitions } from '../utils/fetchData';
+import { fetchTeams } from '../utils/fetchData';
 
-function Leagues() {
+function Teams() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [competitions, setCompetitions] = useState([]);
+  const [teams, setTeams] = useState([]);
   const [count, setCount] = useState(0);
   const [itemsPerPage] = useState(6);
   const [shownItems, setShownItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [paginationLength, setPaginationLength] = useState(0);
 
   const getData = useCallback(async () => {
-    const { competitions: items, count: n } = await fetchCompetitions();
-    setCompetitions(items);
+    const { teams: items, count: n } = await fetchTeams();
+    setTeams(items);
     setCount(n);
   });
 
@@ -33,12 +31,8 @@ function Leagues() {
     return allItems.slice(showFromIndex, showToIndex);
   };
 
-  const getPaginationLength = () => {
-    setPaginationLength(Math.ceil(filteredItems.length / itemsPerPage));
-  };
-
   const handleSearch = (search) => {
-    let data = [...competitions];
+    let data = [...teams];
     if (search) {
       data = data.filter((team) => {
         const name = team.name.toLowerCase();
@@ -53,30 +47,26 @@ function Leagues() {
   }, []);
 
   useEffect(() => {
-    if (competitions.length) {
+    if (teams.length) {
       initPageNumber();
       handleSearch();
     }
-  }, [competitions]);
+  }, [teams]);
 
   useEffect(() => {
     const page = parseInt(searchParams.get('page'), 10);
     setShownItems(getShownItems(filteredItems, page));
-  }, [competitions, filteredItems, searchParams]);
+  }, [teams, filteredItems, searchParams]);
 
-  useEffect(() => {
-    getPaginationLength();
-  }, [filteredItems]);
-
-  // const paginationLength = Math.ceil(count / itemsPerPage);
+  const paginationLength = Math.ceil(count / itemsPerPage);
 
   return (
     <>
       <Search onSearch={handleSearch} />
-      {filteredItems.length ? <LeagueList items={shownItems} /> : <span>Loading...</span>}
+      {filteredItems.length ? <TeamList items={shownItems} /> : <span>Loading...</span>}
       {paginationLength > 0 && <Pagination length={paginationLength} />}
     </>
   );
 }
 
-export default Leagues;
+export default Teams;

@@ -15,7 +15,8 @@ const Card = styled.article`
   background-color: var(--color-bg-primary);
   border-radius: 5px;
   box-shadow: none;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
     box-shadow: var(--shadow-primary);
