@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import BaseLink from '../../components/BaseLink';
 import Card from '../../components/Card';
 import CardTitle from '../../components/CardTitle';
-import CardText from '../../components/CardText';
+import Img from '../../components/Img';
 
-function League(props) {
-  const { id, name, country } = props;
+function TeamCard(props) {
+  const { id, name, image } = props;
 
   // const navigate = useNavigate();
 
@@ -18,16 +18,16 @@ function League(props) {
       // onClick={() => {navigate(`${id}`);}}
       >
         <CardTitle>{name}</CardTitle>
-        <CardText>{country}</CardText>
+        <Img width={70} height={70} src={image} />
       </Card>
     </BaseLink>
   );
 }
 
-League.propTypes = {
+TeamCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
-export default League;
+export default TeamCard;

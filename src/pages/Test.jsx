@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import CardsPage from '../containers/Cards/CardsPage';
+import CardsPage from '../containers/Cards';
 
 import { fetchTeams } from '../utils/fetchData';
 

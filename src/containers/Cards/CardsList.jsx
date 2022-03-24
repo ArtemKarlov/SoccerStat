@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import GridWrapper from '../../components/GridWrapper';
-import CardItem from './CardItem';
+import CardsItem from './CardsItem';
 
 function CardsList(props) {
   const { items, resource } = props;
@@ -10,7 +10,7 @@ function CardsList(props) {
   return (
     <GridWrapper cols={resource === 'competitions' ? '3' : '4'}>
       {items.map((item) => (
-        <CardItem key={item.id} resource={resource} item={item} />
+        <CardsItem key={item.id} resource={resource} item={item} />
       ))}
     </GridWrapper>
   );

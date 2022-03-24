@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 
 import CardsList from './CardsList';
-import { Pagination, Search } from '../common';
+import { Pagination, Search } from '../Controls';
 
 function CardsPage({ resource, items }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filteredItems, setFilteredItems] = useState(items);
   const [shownItems, setShownItems] = useState([]);
   const [paginationLength, setPaginationLength] = useState(0);
-  const [itemsPerPage] = useState(6);
+  const [itemsPerPage] = useState(9);
 
   const initPageNumber = () => {
     const page = searchParams.get('page');

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const PaginationLink = styled.button`
+const PaginationLink = styled(Link)`
   display: block;
   position: relative;
   width: 30px;

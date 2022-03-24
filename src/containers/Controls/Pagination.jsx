@@ -31,7 +31,11 @@ function Pagination({ length }) {
       <List>
         {paginationArray.map((item) => (
           <ListItem key={item}>
-            <PaginationLink active={item === pageNumber} onClick={() => handlePaginate(item)}>
+            <PaginationLink
+              as="button"
+              active={item === pageNumber}
+              onClick={() => handlePaginate(item)}
+            >
               {item}
             </PaginationLink>
           </ListItem>
