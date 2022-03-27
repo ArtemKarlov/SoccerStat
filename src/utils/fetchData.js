@@ -1,12 +1,12 @@
 import { API_BASE_URL, API_TOKEN } from '../config';
 
-const fetchData = (resource) => async () => {
-  const params = { plan: 'TIER_ONE' };
+const fetchData = async (path, params = {}) => {
+  const searchParams = { plan: 'TIER_ONE', ...params };
+  const relPath = path.replace(/^\//, '');
+  const url = new URL(relPath, API_BASE_URL);
+  url.search = new URLSearchParams(searchParams).toString();
 
-  const url = new URL(resource, API_BASE_URL);
-  url.search = new URLSearchParams(params).toString();
-
-  const data = {};
+  let data = {};
 
   try {
     const response = await fetch(url, {
@@ -20,9 +20,7 @@ const fetchData = (resource) => async () => {
       throw new Error(response.statusText);
     }
 
-    const json = await response.json();
-    data[resource] = json[resource];
-    data.count = json.count;
+    data = await response.json();
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
@@ -32,7 +30,19 @@ const fetchData = (resource) => async () => {
   return data;
 };
 
-const fetchCompetitions = fetchData('competitions');
-const fetchTeams = fetchData('teams');
+const fetchCompetitions = async () => {
+  const { count, competitions } = await fetchData('competitions');
+  return { count, competitions };
+};
 
-export { fetchData, fetchCompetitions, fetchTeams };
+const fetchTeams = async () => {
+  const { count, teams } = await fetchData('teams');
+  return { count, teams };
+};
+
+const fetchMatches = async (path, params = {}) => {
+  const { count, matches } = await fetchData(path, params);
+  return { count, matches };
+};
+
+export { fetchCompetitions, fetchTeams, fetchMatches };

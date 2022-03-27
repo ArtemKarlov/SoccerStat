@@ -24,13 +24,10 @@ function AppHeader() {
           <Nav>
             <List>
               <ListItem>
-                <HeaderLink to="/leagues">Leagues</HeaderLink>
+                <HeaderLink to="/competitions">Leagues</HeaderLink>
               </ListItem>
               <ListItem>
                 <HeaderLink to="/teams">Teams</HeaderLink>
-              </ListItem>
-              <ListItem>
-                <HeaderLink to="/test">Test</HeaderLink>
               </ListItem>
             </List>
           </Nav>
