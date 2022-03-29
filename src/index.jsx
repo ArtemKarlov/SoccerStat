@@ -7,7 +7,7 @@ import AppRouter from './AppRouter';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/SoccerStat">
       <AppRouter />
     </BrowserRouter>
   </React.StrictMode>,
