@@ -1,21 +1,17 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-import Container from './components/Container';
-import Main from './components/Main';
 import Footer from './components/Footer';
-import { AppHeader } from './containers/Layout';
+import { AppHeader, AppMain } from './containers/Layout';
 import AppWrapper from './components/AppWrapper';
-import Leagues from './pages/Leagues';
 
 function App() {
   return (
     <AppWrapper>
       <AppHeader />
-      <Main>
-        <Container>
-          <Leagues />
-        </Container>
-      </Main>
+      <AppMain>
+        <Outlet />
+      </AppMain>
       <Footer>Footer</Footer>
     </AppWrapper>
   );

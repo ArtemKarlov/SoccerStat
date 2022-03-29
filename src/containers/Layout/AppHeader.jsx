@@ -5,30 +5,29 @@ import Header from '../../components/Header';
 import Container from '../../components/Container';
 import FlexWrapper from '../../components/FlexWrapper';
 import Nav from '../../components/Nav';
-import NavLink from '../../components/NavLink';
+import HeaderLink from '../../components/HeaderLink';
 import Img from '../../components/Img';
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
+import BaseLink from '../../components/BaseLink';
+
+import logo from '../../images/ball.png';
 
 function AppHeader() {
   return (
     <Header>
       <Container>
         <FlexWrapper>
-          <Img
-            width={40}
-            height={40}
-            src="https://www.diekaes.de/wp-content/uploads/2018/01/logo-placeholder.png"
-          />
+          <BaseLink to="/">
+            <Img width={60} height={60} src={logo} />
+          </BaseLink>
           <Nav>
             <List>
               <ListItem>
-                <NavLink href="/leagues" active>
-                  Leagues
-                </NavLink>
+                <HeaderLink to="/competitions">Leagues</HeaderLink>
               </ListItem>
               <ListItem>
-                <NavLink href="/teams">Teams</NavLink>
+                <HeaderLink to="/teams">Teams</HeaderLink>
               </ListItem>
             </List>
           </Nav>

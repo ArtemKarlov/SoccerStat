@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
 import AppHeader from './AppHeader';
+import AppMain from './AppMain';
 
-export { AppHeader };
+export { AppHeader, AppMain };
