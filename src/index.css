@@ -28,11 +28,11 @@
   --color-text: rgb(24, 24, 24);
   --color-bg: rgb(204, 204, 204);
 
-  --color-text-primary: rgb(21, 0, 80);
-  --color-bg-primary: rgb(197, 203, 255);
+  --color-text-primary: rgb(46, 41, 58);
+  --color-bg-primary: rgb(223, 230, 245);
 
-  --color-text-secondary: rgb(73, 13, 13);
-  --color-bg-secondary: rgb(240, 185, 185);
+  --color-text-secondary: rgb(47, 53, 56);
+  --color-bg-secondary: rgb(219, 237, 245);
 
   --shadow-primary: 5px 5px 10px var(--color-text-primary)
 }

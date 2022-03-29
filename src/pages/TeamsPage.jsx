@@ -4,7 +4,7 @@ import CardsPage from '../containers/Cards';
 
 import { fetchTeams } from '../utils/fetchData';
 
-function Teams() {
+function TeamsPage() {
   const [teams, setTeams] = useState([]);
   const [count, setCount] = useState(0);
 
@@ -21,4 +21,4 @@ function Teams() {
   return count !== 0 ? <CardsPage resource="teams" items={teams} /> : <span>Loading...</span>;
 }
 
-export default Teams;
+export default TeamsPage;

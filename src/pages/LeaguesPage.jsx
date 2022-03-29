@@ -4,7 +4,7 @@ import CardsPage from '../containers/Cards';
 
 import { fetchCompetitions } from '../utils/fetchData';
 
-function Leagues() {
+function LeaguesPage() {
   const [competitions, setTeams] = useState([]);
   const [count, setCount] = useState(0);
 
@@ -25,4 +25,4 @@ function Leagues() {
   );
 }
 
-export default Leagues;
+export default LeaguesPage;

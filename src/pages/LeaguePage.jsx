@@ -2,9 +2,9 @@ import React from 'react';
 
 import { useParams } from 'react-router-dom';
 
-function Team() {
+function LeaguePage() {
   const { id } = useParams();
-  return <h1>Team {id}</h1>;
+  return <h1>League {id}</h1>;
 }
 
-export default Team;
+export default LeaguePage;
