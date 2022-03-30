@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
 
 import List from '../../components/List';
 import ListItem from '../../components/ListItem';
@@ -16,14 +15,11 @@ const getArrayN = (n) => {
   return arr;
 };
 
-function Pagination({ length }) {
-  const [searchParams, setSearchParams] = useSearchParams();
-
+function Pagination({ length, onPaginate, pageNumber }) {
   const paginationArray = getArrayN(length);
-  const pageNumber = parseInt(searchParams.get('page') || '0', 10);
 
   const handlePaginate = (item) => {
-    setSearchParams({ page: item });
+    onPaginate(item);
   };
 
   return (
@@ -47,6 +43,8 @@ function Pagination({ length }) {
 
 Pagination.propTypes = {
   length: PropTypes.number.isRequired,
+  onPaginate: PropTypes.func.isRequired,
+  pageNumber: PropTypes.number.isRequired,
 };
 
 export default Pagination;

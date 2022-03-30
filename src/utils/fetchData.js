@@ -1,9 +1,9 @@
 import { API_BASE_URL, API_TOKEN, API_PLAN } from '../config';
 
-const fetchData = async (path, searchString = '') => {
+const fetchData = async (path, params = {}) => {
   const relPath = path.replace(/^\//, '');
   const url = new URL(relPath, API_BASE_URL);
-  const searchParams = new URLSearchParams(searchString);
+  const searchParams = new URLSearchParams(params);
   searchParams.append('plan', API_PLAN);
   url.search = searchParams.toString();
 
@@ -27,7 +27,7 @@ const fetchData = async (path, searchString = '') => {
     console.error(error);
   }
 
-  console.log(data);
+  // console.log(data);
   return data;
 };
 
@@ -41,8 +41,8 @@ const fetchTeams = async () => {
   return { count, teams };
 };
 
-const fetchMatches = async (path, searchString = '') => {
-  const { count, matches } = await fetchData(path, searchString);
+const fetchMatches = async (path, params = {}) => {
+  const { count, matches } = await fetchData(path, params);
   return { count, matches };
 };
 
