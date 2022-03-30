@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 import CardsList from './CardsList';
 import { Pagination, Search } from '../Controls';
 
 function CardsPage({ resource, items }) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
   const [filteredItems, setFilteredItems] = useState(items);
   const [shownItems, setShownItems] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
   const [paginationLength, setPaginationLength] = useState(0);
   const [itemsPerPage] = useState(9);
 
-  const initPageNumber = () => {
-    const page = searchParams.get('page');
-    if (!page) setSearchParams({ page: '1' });
-  };
-
-  const getShownItems = (allItems, pageNumber) => {
-    const showToIndex = itemsPerPage * pageNumber;
+  const getShownItems = (allItems, pageNum) => {
+    const showToIndex = itemsPerPage * pageNum;
     const showFromIndex = showToIndex - itemsPerPage;
     return allItems.slice(showFromIndex, showToIndex);
   };
@@ -37,17 +33,12 @@ function CardsPage({ resource, items }) {
   };
 
   useEffect(() => {
-    initPageNumber();
-  });
-
-  useEffect(() => {
-    const page = parseInt(searchParams.get('page'), 10);
-    setShownItems(getShownItems(filteredItems, page));
-  }, [filteredItems, searchParams]);
+    setShownItems(getShownItems(filteredItems, pageNumber));
+  }, [filteredItems, pageNumber]);
 
   useEffect(() => {
     setPaginationLength(getPaginationLength());
-    setSearchParams({ page: '1' });
+    setPageNumber(1);
   }, [filteredItems]);
 
   return (
@@ -56,7 +47,11 @@ function CardsPage({ resource, items }) {
       {filteredItems.length ? (
         <>
           <CardsList resource={resource} items={shownItems} />
-          <Pagination length={paginationLength} />
+          <Pagination
+            length={paginationLength}
+            pageNumber={pageNumber}
+            onPaginate={setPageNumber}
+          />
         </>
       ) : (
         <span>Not found</span>

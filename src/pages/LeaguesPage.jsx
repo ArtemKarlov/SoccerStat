@@ -6,19 +6,19 @@ import { fetchCompetitions } from '../utils/fetchData';
 
 function LeaguesPage() {
   const [competitions, setTeams] = useState([]);
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   const handleFetchData = useCallback(async () => {
     const data = await fetchCompetitions();
     setTeams(data.competitions);
-    setCount(data.count);
+    // setCount(data.count);
   });
 
   useEffect(() => {
     handleFetchData();
   }, []);
 
-  return count !== 0 ? (
+  return competitions.length !== 0 ? (
     <CardsPage resource="competitions" items={competitions} />
   ) : (
     <span>Loading...</span>

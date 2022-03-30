@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Input = styled.input`
   margin: 0;
@@ -11,6 +11,12 @@ const Input = styled.input`
 
   color: var(--color-text-primary);
   font-size: 1em;
+
+  ${(props) =>
+    props.isError &&
+    css`
+      border-color: red;
+    `}
 `;
 
 export default Input;
