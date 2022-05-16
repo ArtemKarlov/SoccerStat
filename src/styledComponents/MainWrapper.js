@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-const AppWrapper = styled.div`
+const MainWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
-}
+
+  & > div:last-child {
+    margin-top: auto;
+  }
 `;
 
-export default AppWrapper;
+export default MainWrapper;

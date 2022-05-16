@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 // import BaseLink from '../../components/BaseLink';
-import Card from '../../components/Card';
-import CardTitle from '../../components/CardTitle';
-import CardText from '../../components/CardText';
+import Card from '../../styledComponents/Card';
+import CardTitle from '../../styledComponents/CardTitle';
+import CardText from '../../styledComponents/CardText';
 
 function LeagueCard(props) {
   const { id, name, country } = props;

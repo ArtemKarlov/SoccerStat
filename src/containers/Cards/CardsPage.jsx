@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import { useSearchParams } from 'react-router-dom';
 
-import CardsList from './CardsList';
+import CardsList from '../../components/Cards';
 import { Pagination, Search } from '../Controls';
 
 function CardsPage({ resource, items }) {

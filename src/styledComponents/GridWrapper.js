@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const GridWrapper = styled.div`
+  padding: 20px 0;
   width: 100%;
-  padding: 30px;
   display: grid;
   grid-template-columns: 100%;
   align-content: start;

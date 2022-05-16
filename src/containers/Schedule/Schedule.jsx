@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import ScheduleList from './ScheduleList';
+import ScheduleList from '../../components/Schedule';
 
 function Schedule({ items, itemsPerPage, pageNumber }) {
   const [shownItems, setShownItems] = useState(items);

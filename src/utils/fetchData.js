@@ -27,7 +27,7 @@ const fetchData = async (path, params = {}) => {
     console.error(error);
   }
 
-  // console.log(data);
+  console.log(data);
   return data;
 };
 
