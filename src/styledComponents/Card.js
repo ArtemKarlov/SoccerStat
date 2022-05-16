@@ -11,16 +11,16 @@ const Card = styled.article`
   justify-content: center;
   align-items: center;
   gap: 30px;
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-secondary);
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    box-shadow: var(--shadow-primary);
-    transform: scale(1.02);
+    box-shadow: var(--shadow-secondary);
+    transform: scale(1.01);
   }
 
   ${(props) =>

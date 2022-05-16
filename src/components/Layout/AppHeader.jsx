@@ -1,15 +1,14 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
-import Header from '../../components/Header';
-import Container from '../../components/Container';
-import FlexWrapper from '../../components/FlexWrapper';
-import Nav from '../../components/Nav';
-import HeaderLink from '../../components/HeaderLink';
-import Img from '../../components/Img';
-import List from '../../components/List';
-import ListItem from '../../components/ListItem';
-import BaseLink from '../../components/BaseLink';
+import Header from '../../styledComponents/Header';
+import Container from '../../styledComponents/Container';
+import FlexWrapper from '../../styledComponents/FlexWrapper';
+import Nav from '../../styledComponents/Nav';
+import HeaderLink from '../../styledComponents/HeaderLink';
+import Img from '../../styledComponents/Img';
+import List from '../../styledComponents/List';
+import ListItem from '../../styledComponents/ListItem';
+import BaseLink from '../../styledComponents/BaseLink';
 
 import logo from '../../images/ball.png';
 
@@ -36,10 +35,5 @@ function AppHeader() {
     </Header>
   );
 }
-
-// Header.propTypes = {
-//   // eslint-disable-next-line react/forbid-prop-types
-//   leagues: PropTypes.array.isRequired,
-// };
 
 export default AppHeader;

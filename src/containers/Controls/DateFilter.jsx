@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Input from '../../components/Input';
+import Input from '../../styledComponents/Input';
+import ControlsWrapper from '../../styledComponents/ControlsWrapper';
 
 function DateFilter({ onDateSet, values }) {
   const [dateFrom, setDateFrom] = useState(values.dateFrom);
@@ -35,7 +36,7 @@ function DateFilter({ onDateSet, values }) {
   }, [dateFrom, dateTo]);
 
   return (
-    <>
+    <ControlsWrapper>
       <Input
         type="date"
         name="dateFrom"
@@ -52,7 +53,7 @@ function DateFilter({ onDateSet, values }) {
         value={dateTo}
         isError={emptyField === 'dateTo'}
       />
-    </>
+    </ControlsWrapper>
   );
 }
 

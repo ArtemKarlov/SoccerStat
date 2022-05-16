@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import List from '../../components/List';
-import ListItem from '../../components/ListItem';
-import PaginationLink from '../../components/PaginationLink';
-import FlexWrapper from '../../components/FlexWrapper';
+import List from '../../styledComponents/List';
+import ListItem from '../../styledComponents/ListItem';
+import PaginationLink from '../../styledComponents/PaginationLink';
+import FlexWrapper from '../../styledComponents/FlexWrapper';
+import ControlsWrapper from '../../styledComponents/ControlsWrapper';
 
 const getArrayN = (n) => {
   const arr = [];
@@ -23,21 +24,23 @@ function Pagination({ length, onPaginate, pageNumber }) {
   };
 
   return (
-    <FlexWrapper justify="center">
-      <List>
-        {paginationArray.map((item) => (
-          <ListItem key={item}>
-            <PaginationLink
-              as="button"
-              active={item === pageNumber}
-              onClick={() => handlePaginate(item)}
-            >
-              {item}
-            </PaginationLink>
-          </ListItem>
-        ))}
-      </List>
-    </FlexWrapper>
+    <ControlsWrapper>
+      <FlexWrapper justify="center">
+        <List>
+          {paginationArray.map((item) => (
+            <ListItem key={item}>
+              <PaginationLink
+                as="button"
+                active={item === pageNumber}
+                onClick={() => handlePaginate(item)}
+              >
+                {item}
+              </PaginationLink>
+            </ListItem>
+          ))}
+        </List>
+      </FlexWrapper>
+    </ControlsWrapper>
   );
 }
 
