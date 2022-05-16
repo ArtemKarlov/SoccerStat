@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Input from '../../components/Input';
+import Input from '../../styledComponents/Input';
+import ControlsWrapper from '../../styledComponents/ControlsWrapper';
 
 function Search({ onSearch }) {
   const [search, setSearch] = useState('');
@@ -9,7 +10,11 @@ function Search({ onSearch }) {
     onSearch(search);
   }, [search]);
 
-  return <Input onChange={(e) => setSearch(e.target.value)} value={search} />;
+  return (
+    <ControlsWrapper>
+      <Input onChange={(e) => setSearch(e.target.value)} value={search} />
+    </ControlsWrapper>
+  );
 }
 
 Search.propTypes = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GridWrapper from '../../components/GridWrapper';
+import GridWrapper from '../../styledComponents/GridWrapper';
 import CardsItem from './CardsItem';
 
 function CardsList(props) {

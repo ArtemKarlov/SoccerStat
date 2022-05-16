@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-import Footer from './components/Footer';
-import { AppHeader, AppMain } from './containers/Layout';
-import AppWrapper from './components/AppWrapper';
+import Footer from './styledComponents/Footer';
+import { AppHeader, AppMain } from './components/Layout';
+import AppWrapper from './styledComponents/AppWrapper';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <AppMain>
         <Outlet />
       </AppMain>
-      <Footer>Footer</Footer>
+      <Footer>SoccerStat, 2022</Footer>
     </AppWrapper>
   );
 }

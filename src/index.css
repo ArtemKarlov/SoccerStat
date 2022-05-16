@@ -34,7 +34,8 @@
   --color-text-secondary: rgb(47, 53, 56);
   --color-bg-secondary: rgb(219, 237, 245);
 
-  --shadow-primary: 5px 5px 10px var(--color-text-primary)
+  --shadow-primary: 3px 3px 10px var(--color-text-primary);
+  --shadow-secondary: 3px 3px 10px var(--color-text-secondary);
 }
 
 body {

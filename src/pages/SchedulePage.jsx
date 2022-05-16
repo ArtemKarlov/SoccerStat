@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, useLocation, useSearchParams } from 'react-router-dom';
 
-import { Pagination } from '../containers/Controls';
-import DateFilter from '../containers/Controls/DateFilter';
+import { Pagination, DateFilter } from '../containers/Controls';
 import Schedule from '../containers/Schedule/Schedule';
 
 import { fetchMatches } from '../utils/fetchData';
